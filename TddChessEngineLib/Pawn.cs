@@ -1,9 +1,24 @@
-﻿using System;
+using System;
 
-namespace TddChessEngineLib
-{
-    public class Pawn
-    {
-        public void Turn(object startPosition, object finishPosition){}
+
+namespace TddChessEngineLib {
+    public class Pawn {
+        public string curentPosition; 
+
+        public Pawn(string initialPosition)
+        {
+            curentPosition = initialPosition;
+        }
+        public void Turn (string startPosition, string finishPosition) {
+            if(curentPosition == startPosition)
+            {
+                curentPosition = finishPosition;
+            }
+            else
+            {
+                throw new ArgumentException($"Curent position is{curentPosition}");
+            }
+            
+        }
     }
 }
