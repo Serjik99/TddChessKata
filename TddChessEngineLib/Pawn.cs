@@ -3,13 +3,15 @@ using System;
 
 namespace TddChessEngineLib {
     public class Pawn {
-        public string curentPosition; 
+        public string curentPosition {get; private set;}
 
         public Pawn(string initialPosition)
         {
             curentPosition = initialPosition;
         }
-        public void Turn (string startPosition, string finishPosition) {
+
+        public void Turn (string startPosition, string finishPosition) 
+        {
             if(curentPosition == startPosition)
             {
                 curentPosition = finishPosition;
@@ -17,8 +19,7 @@ namespace TddChessEngineLib {
             else
             {
                 throw new ArgumentException($"Curent position is{curentPosition}");
-            }
-            
+            }   
         }
     }
 }
