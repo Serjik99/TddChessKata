@@ -19,9 +19,43 @@ namespace TddChessEngineLib {
         //
         public void Turn (string startPosition, string finishPosition) 
         {
+            char[] pos1 = startPosition.ToCharArray();
+            char[] pos2 = finishPosition.ToCharArray();
+            var startLine = Convert.ToInt32(pos1[1].ToString());
+            var finishLine = Convert.ToInt32(pos2[1].ToString());
             if(curentPosition == startPosition)
             {
-                curentPosition = finishPosition;
+                if(FigureColor == FigureColor.Black && startLine > finishLine)
+                {
+                    if((startLine - finishLine == 2 && startLine == 7)||(startLine - finishLine == 1)) 
+                    {
+                         curentPosition = finishPosition;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("try go so far");
+                    }
+                    
+                   
+                } 
+                else if(FigureColor == FigureColor.White && startLine < finishLine)
+                {
+                    if((finishLine - startLine == 2 && startLine == 2)||(finishLine - startLine == 1)) 
+                    {
+                        curentPosition = finishPosition;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("try go so far");
+                    }
+                    
+                }
+                else
+                {
+                    throw new ArgumentException("Trying to go back");
+                }
+               
+                
             }
             else
             {
