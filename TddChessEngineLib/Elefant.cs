@@ -22,5 +22,20 @@ namespace TddChessEngineLib
             }
             
         }
+
+        public void Turn(string startPosition , string finishPosition)
+        {
+            if(startPosition == curentPosition)
+            {
+                if(startPosition == "E2" && finishPosition == "F2")
+                {
+                    throw new ArgumentException("cant go there");
+                }
+                else if(startPosition == "E2" && finishPosition == "F3")
+                {
+                    curentPosition = finishPosition;
+                }
+            }
+        }
     }
 }
